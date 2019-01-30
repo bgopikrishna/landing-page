@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400|Raleway:300,400");
-
+@import "./mobile";
 /*Colors*/
 
 /*Primary Colors*/
@@ -19,10 +19,26 @@ $white: hsl(0, 0%, 100%);
 
 $font-size: 14px;
 
-html,
+/*Mixins*/
+
+@mixin link-hover($color) {
+  transition: all 0.2s ease-in-out;
+  &:hover,
+  &:focus {
+    color: $color;
+  }
+}
+
+/*Styles */
+html {
+  scroll-behavior: smooth;
+}
 body {
   padding: 0;
   margin: 0;
+  scroll-behavior: smooth;
+  background: $dark-blue3;
+  max-width: 100vw;
 }
 a {
   color: inherit;
@@ -31,6 +47,7 @@ a {
 }
 ul {
   list-style: none;
+  margin: 0;
 }
 p {
   font-family: "Open Sans", sans-serif;
@@ -42,11 +59,18 @@ h3 {
   font-family: "Raleway", sans-serif;
   margin: 0;
 }
+input,
+button {
+  outline: none;
+}
+/*Styling For Desktops -Start*/
+
 .container {
   background: $dark-blue1;
   color: $white;
   font-family: "Open Sans", sans-serif;
-
+  width: 100%;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   padding-top: 1em;
@@ -78,11 +102,15 @@ img {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-weight: 300;
+  font-weight: 400;
 
   li {
     display: block;
     margin: auto 40px;
+
+    a {
+      @include link-hover($blue);
+    }
   }
 }
 
@@ -110,12 +138,21 @@ img {
 
   a.hero-link {
     padding: 10px 40px;
-    background: #339ecc;
+    background: $blue;
     margin: 40px auto;
     border-radius: 20px;
     display: block;
     width: 150px;
     box-sizing: content-box;
+    transition: all 0.3s ease-out;
+
+    &:hover,
+    &:focus {
+      background: $white;
+      color: $blue;
+      cursor: pointer;
+      font-weight: bold;
+    }
   }
 }
 
@@ -160,6 +197,7 @@ img {
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
+  min-height: 95vh;
   a {
     color: $cyan;
 
@@ -173,7 +211,8 @@ img {
       transition: width 0.3s ease-in-out;
     }
 
-    &:hover::after {
+    &:hover::after,
+    &:focus::after {
       width: 150px;
     }
   }
@@ -254,16 +293,16 @@ img {
     margin: auto;
     border-radius: 10px;
     text-align: center;
-p {
-  margin: 1em auto;
-}
-h2 {
-  margin-bottom: none;
-}
+    p {
+      margin: 1em auto;
+    }
+    h2 {
+      margin-bottom: none;
+    }
     form {
       display: flex;
       justify-content: space-around;
-    
+
       width: 70%;
       margin: 20px auto;
     }
@@ -271,20 +310,23 @@ h2 {
     form input {
       width: 60%;
       background: white;
-      border: none;
-      border-radius: 15px;
+      border: 1px solid $white;
+      border-radius: 12px;
       height: 40px;
       padding: 5px 20px;
       box-sizing: border-box;
-      box-shadow: 4px 4px 4px $dark-blue4;
       z-index: 9999;
       color: $dark-blue2;
+      transition: all 0.3s ease-in-out;
 
-
+      &:focus {
+        box-shadow: 0px 0px 7px $blue;
+        border: 1px solid $blue;
+      }
     }
 
     form button {
-      background: $cyan;
+      background: $blue;
       border: none;
       color: $white;
       font-size: 14px;
@@ -296,7 +338,195 @@ h2 {
       box-sizing: border-box;
       box-shadow: 4px 4px 4px $dark-blue1;
       z-index: 9999;
+      transform-origin: 0%;
+      transition: all 0.3s ease-in-out;
 
+      &:hover,
+      &:focus {
+        background: $white;
+        color: $blue;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+#footer {
+  display: flex;
+  justify-content: space-around;
+  background: $dark-blue3;
+  color: $white;
+  width: 90%;
+  margin: 0px auto;
+  position: relative;
+  align-items: flex-start;
+  min-height: 250px;
+  padding: 80px 10px 10px 10px;
+  line-height: 2;
+  a {
+    @include link-hover($blue);
+  }
+  div {
+    max-width: calc(100% / 5);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .footer-logo {
+    display: block !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .footer-contact {
+    img {
+      height: 20px;
+      width: 20px;
+      display: inline-block;
+      margin-right: 10px;
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin: auto auto 10px auto;
+    }
+  }
+
+  .footer-social-icons {
+    min-width: 10%;
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: auto;
+      width: 100%;
+
+      li {
+        display: block;
+      }
+    }
+
+    .fab {
+      #footer-fb {
+        color: #3b5998 !important;
+      }
+      .fa-twitter i {
+        color: #1da1f2 !important;
+      }
+      .fa-instagram i {
+        color: #db3158 !important;
+      }
+    }
+  }
+}
+/*Styling For Desktops -End*/
+
+/*Stlying for mobiles and tabs*/
+
+@media (max-width: 900px) {
+  .nav {
+    width: 100%;
+    margin: 10px auto;
+  }
+
+  .nav nav ul {
+    li {
+      margin: auto 10px;
+    }
+  }
+  .hero {
+    background: url("../images/bg-curvy-mobile.svg") no-repeat;
+    background-position: bottom;
+    .hero-img {
+      width: 100%;
+    }
+    .hero-content {
+      width: 100%;
+      padding: 20px 5px;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .features {
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto;
+  }
+
+  .how-works {
+    flex-direction: column;
+
+    .how-works-img,
+    .how-works-content {
+      width: 90%;
+      margin: 20px auto;
+    }
+  }
+  .review-section {
+    padding: 40px 0;
+    .reviews {
+      flex-direction: column;
+      width: 100%;
+
+      .review-card {
+        width: 90%;
+        margin: 20px auto;
+      }
+
+      .card-reviewer {
+        width: 100%;
+      }
+    }
+  }
+  #sign-up {
+    .sign-up {
+      width: 80%;
+      padding: 20px 10px;
+      form {
+        flex-direction: column;
+        width: 80%;
+        margin: 20px auto auto;
+
+        input,
+        button {
+          width: 100%;
+          margin: 10px auto;
+        }
+      }
+    }
+  }
+
+  #footer {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding-left: 20px;
+    box-sizing: border-box;
+    .footer-logo {
+      left: 20px;
+    }
+
+    div {
+      max-width: 80%;
+      margin: 10px 0;
+
+      ul {
+        padding: 0;
+      }
+    }
+
+    .footer-social-icons {
+      min-width: 40%;
     }
   }
 }

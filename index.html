@@ -28,9 +28,10 @@
         font-size: 11px;
         text-align: center;
         font-family: monospace;
+        color: white;
       }
       .attribution a {
-        color: hsl(228, 45%, 44%);
+        color: hsl(198, 60%, 50%);
       }
     </style>
   </head>
@@ -42,9 +43,9 @@
         </header>
         <nav>
           <ul>
-            <li><a href="#">Features</a></li>
-            <li><a href="#">Team</a></li>
-            <li><a href="#">Sign In</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">Team</a></li>
+            <li><a href="#sign-up">Sign In</a></li>
           </ul>
         </nav>
       </div>
@@ -63,10 +64,10 @@
             Access them wherever you need, share and collaborate with friends
             family, and co-workers.
           </p>
-          <a href="#" class="hero-link">Get Started</a>
+          <a href="#sign-up" class="hero-link">Get Started</a>
         </div>
       </section>
-      <section class="features">
+      <section class="features" id="features">
         <div class="feature-tile">
           <div class="feature-img">
             <img
@@ -132,7 +133,7 @@
           </div>
         </div>
       </section>
-      <section class="how-works">
+      <section class="how-works" id="how-it-works">
         <div class="how-works-img">
           <img
             src="./images/illustration-stay-productive.png"
@@ -156,7 +157,7 @@
         </div>
       </section>
 
-      <section class="review-section">
+      <section class="review-section" id="reviews">
         <div class="reviews">
           <div class="review-card">
             <div class="card-content">
@@ -222,23 +223,83 @@
           </div>
           <div class="sign-up-form">
             <form action="#">
-              <input type="email" />
+              <input type="email" placeholder="yourmail@gmail.com" />
               <button type="submit">Get Started For Free</button>
             </form>
           </div>
         </div>
       </section>
-
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua +1-543-123-4567
-      example@fylo.com About Us Jobs Press Blog Contact Us Terms Privacy
     </div>
+    <section id="footer">
+      <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua +1-543-123-4567
+        example@fylo.com About Us Jobs Press Blog Contact Us Terms Privacy -->
+      <div class="footer-logo">
+        <img src="./images/logo.svg" alt="Flyo Landing Page" />
+      </div>
+      <div class="footer-content">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+      <div class="footer-contact">
+        <ul>
+          <li>
+            <a href="tel:+1-543-123-4567"
+              ><img
+                src="./images/icon-phone.svg"
+                alt="+1-543-123-4567"
+              />+1-543-123-4567</a
+            >
+          </li>
+          <li>
+            <a href="mailto:example@flyo.com"
+              ><img
+                src="./images/icon-email.svg"
+                alt="example@fylo.com"
+              />example@fylo.com</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-list">
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Jobs</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-list">
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Privacy</a></li>
+        </ul>
+      </div>
+      <div class="footer-social-icons">
+        <ul>
+          <li>
+            <a href="#"><i class="fab fa-facebook-f" id="footer-fb"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fab fa-twitter" id="footer-twitter"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fab fa-instagram" id="footer-insta"></i></a>
+          </li>
+        </ul>
+      </div>
+    </section>
     <footer>
       <p class="attribution">
         Challenge by
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
           >Frontend Mentor</a
-        >. Coded by <a href="#">Gopi Krishna</a>.
+        >. Coded by
+        <a href="https://twitter.com/bgopikrishna77">Gopi Krishna</a>.
       </p>
     </footer>
   </body>
