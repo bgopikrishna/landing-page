@@ -51,7 +51,7 @@ button {
   color: white;
   font-family: "Open Sans", sans-serif;
   width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
